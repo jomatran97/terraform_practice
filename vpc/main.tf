@@ -1,3 +1,6 @@
+terraform {
+  required_version = ">= 0.12"
+}
 provider "aws" {
   region     = var.region
   access_key = var.access_key
@@ -26,4 +29,3 @@ resource "aws_subnet" "main" {
   map_public_ip_on_launch = true
   availability_zone       = element(data.aws_availability_zones.available.names, count.index)
 }
-
